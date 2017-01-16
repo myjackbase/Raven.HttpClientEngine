@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6BB2BEF8-8A41-4DE5-B401-8F9DBE576724}</ProjectGuid>
+    <ProjectGuid>{A9474950-212E-42A1-8F1F-4EE4C5EA0CBF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Raven.HttpClientEngine</RootNamespace>
-    <AssemblyName>Raven.HttpClientEngine</AssemblyName>
+    <RootNamespace>Raven.HttpClientEngine.Entity</RootNamespace>
+    <AssemblyName>Raven.HttpClientEngine.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,21 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DelegatingHandlers\HttpHeaderHandler.cs" />
-    <Compile Include="DelegatingHandlers\HttpTraceLogHandler.cs" />
-    <Compile Include="HttpEngine.cs" />
-    <Compile Include="HttpItem.cs" />
-    <Compile Include="HttpMessageOptions.cs" />
-    <Compile Include="MessageOptions\HttpMessageOptions.cs" />
-    <Compile Include="MessageOptions\HttpRequestMessageOptions.cs" />
-    <Compile Include="MessageOptions\HttpResponseMessageOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Raven.HttpClientEngine.Entity\Raven.HttpClientEngine.Entity.csproj">
-      <Project>{a9474950-212e-42a1-8f1f-4ee4c5ea0cbf}</Project>
-      <Name>Raven.HttpClientEngine.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Raven.HttpClientEngine.Enum\Raven.HttpClientEngine.Enum.csproj">
       <Project>{68efe525-9f5e-4d6d-a532-68152ab87cb8}</Project>
       <Name>Raven.HttpClientEngine.Enum</Name>

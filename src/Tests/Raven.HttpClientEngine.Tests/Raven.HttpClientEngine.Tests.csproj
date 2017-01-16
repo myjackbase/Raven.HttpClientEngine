@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6BB2BEF8-8A41-4DE5-B401-8F9DBE576724}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D459E582-7CBC-44E7-B3B3-70B519EBC441}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Raven.HttpClientEngine</RootNamespace>
-    <AssemblyName>Raven.HttpClientEngine</AssemblyName>
+    <RootNamespace>Raven.HttpClientEngine.Tests</RootNamespace>
+    <AssemblyName>Raven.HttpClientEngine.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,24 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DelegatingHandlers\HttpHeaderHandler.cs" />
-    <Compile Include="DelegatingHandlers\HttpTraceLogHandler.cs" />
-    <Compile Include="HttpEngine.cs" />
-    <Compile Include="HttpItem.cs" />
-    <Compile Include="HttpMessageOptions.cs" />
-    <Compile Include="MessageOptions\HttpMessageOptions.cs" />
-    <Compile Include="MessageOptions\HttpRequestMessageOptions.cs" />
-    <Compile Include="MessageOptions\HttpResponseMessageOptions.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Raven.HttpClientEngine.Entity\Raven.HttpClientEngine.Entity.csproj">
-      <Project>{a9474950-212e-42a1-8f1f-4ee4c5ea0cbf}</Project>
-      <Name>Raven.HttpClientEngine.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Raven.HttpClientEngine.Enum\Raven.HttpClientEngine.Enum.csproj">
-      <Project>{68efe525-9f5e-4d6d-a532-68152ab87cb8}</Project>
-      <Name>Raven.HttpClientEngine.Enum</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Raven.HttpClientEngine\Raven.HttpClientEngine.csproj">
+      <Project>{6bb2bef8-8a41-4de5-b401-8f9dbe576724}</Project>
+      <Name>Raven.HttpClientEngine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
