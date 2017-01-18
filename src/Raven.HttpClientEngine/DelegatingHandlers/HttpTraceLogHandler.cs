@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Raven.HttpClientEngine.MessageOptions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,8 +12,9 @@ namespace Raven.HttpClientEngine.DelegatingHandlers
     public class HttpTraceLogHandler : DelegatingHandler
     {
         StreamWriter _writer;
+        HttpResponseMessageOptions _options;
 
-        public HttpTraceLogHandler(Stream stream)
+        public HttpTraceLogHandler(HttpResponseMessageOptions options)
         {
             _writer = new StreamWriter(stream);
         }
@@ -34,7 +36,7 @@ namespace Raven.HttpClientEngine.DelegatingHandlers
             }
 
             _writer.WriteLine("{0}\t{1}\t{2}\t{3}", request.RequestUri,
-                    (int)response.StatusCode, response.Headers.Date);
+                    (int)response.StatusCode, response.Headers.Date, await response.Content.ReadAsStringAsync());
             _writer.Close();
             return response;
         }

@@ -9,13 +9,7 @@ namespace Raven.HttpClientEngine.MessageOptions
 {
     public class HttpMessageOptions
     {
-        public List<KeyValuePair<string, string>> Headers { get; set; }
+        public string TraceID { get; set; }
 
-        public string Body { get; set; }
-
-        public HttpMessageOptions()
-        {
-            Headers = new List<KeyValuePair<string, string>>();
-        }
     }
 }

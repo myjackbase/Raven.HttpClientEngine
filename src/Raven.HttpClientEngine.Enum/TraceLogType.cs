@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raven.HttpClientEngine
+namespace Raven.HttpClientEngine.Enum
 {
-    public class HttpEngine
+    public enum TraceLogType
     {
-        
+        DBLog = 1,
+
+        FileLog = 2,
     }
 }

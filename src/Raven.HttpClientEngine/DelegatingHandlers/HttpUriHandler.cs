@@ -9,22 +9,18 @@ using System.Threading.Tasks;
 
 namespace Raven.HttpClientEngine.DelegatingHandlers
 {
-    public class HttpHeaderHandler : DelegatingHandler
+    public class HttpUriHandler : DelegatingHandler
     {
         HttpRequestMessageOptions _options;
 
-        public HttpHeaderHandler(HttpRequestMessageOptions options)
+        public HttpUriHandler(HttpRequestMessageOptions options)
         {
             _options = options;
         }
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            request.Headers.Add("TraceID", _options.TraceID);
-            foreach (var header in _options.CustomHeaders)
-            {
-                request.Headers.Add(header.Key, header.Value);
-            }
+            request.RequestUri = new Uri(string.Concat(_options.BaseAddress, _options.RequestUri));
 
             return base.SendAsync(request, cancellationToken);
         }
